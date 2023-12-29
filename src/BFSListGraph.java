@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
+import java.util.*;
 
 public class BFSListGraph {
     static List<List<Integer>> list = new ArrayList<>();
@@ -116,8 +113,8 @@ public class BFSListGraph {
 //}
 
 
-//// 프로그래머스 : 가장 먼 노드
-//
+// 프로그래머스 : 가장 먼 노드
+
 //class Solution {
 //    static List<List<Integer>> list = new ArrayList<>();
 //    static boolean[] visited;
@@ -142,11 +139,16 @@ public class BFSListGraph {
 //                max = a;
 //            }
 //        }
+//
 //        for(int a : distance) {
 //            if(a == max) {
 //                answer++;
 //            }
 //        }
+//
+//////        람다로 표현
+////        int max = Arrays.stream(distance).max().getAsInt();
+////        int answer = (int) Arrays.stream(distance).filter(a->a==max).count();
 //
 //        return answer;
 //    }
@@ -154,7 +156,6 @@ public class BFSListGraph {
 //        list.get(a).add(b);
 //        list.get(b).add(a);
 //    }
-//
 //
 //    static void bfs(int start) {
 //        Queue<Integer> queue = new LinkedList<>();
