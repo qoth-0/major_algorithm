@@ -25,27 +25,29 @@ public class DFSArrayGraph {
     }
 }
 
-// 프로그래머스 : 네트워크
-class Solution {
-    static boolean[] visited;
-    static int count = 0;
-    public int solution(int n, int[][] computers) {
-        visited = new boolean[n];
-        for(int i=0; i<n; i++) {
-            if(visited[i]!=true) {
-                dfs(i, computers);
-                count++; // bfs가 시작될때마다 count
-            }
-        }
-
-        return count;
-    }
-    static void dfs(int start, int[][] computers) {
-        visited[start] = true;
-        for(int i=0; i< computers[start].length; i++) {
-            if(visited[i]!=true && computers[start][i]==1){
-                dfs(i, computers);
-            }
-        }
-    }
-}
+//// 프로그래머스 : 네트워크
+//class Solution {
+//    static boolean[] visited;
+//    static int count = 0;
+//
+//    public int solution(int n, int[][] computers) {
+//        visited = new boolean[n];
+//        for (int i = 0; i < n; i++) {
+//            if (visited[i] != true) {
+//                dfs(i, computers);
+//                count++; // bfs가 시작될때마다 count
+//            }
+//        }
+//
+//        return count;
+//    }
+//
+//    static void dfs(int start, int[][] computers) {
+//        visited[start] = true;
+//        for (int i = 0; i < computers[start].length; i++) {
+//            if (visited[i] != true && computers[start][i] == 1) {
+//                dfs(i, computers);
+//            }
+//        }
+//    }
+//}

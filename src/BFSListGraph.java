@@ -55,4 +55,121 @@ public class BFSListGraph {
 }
 
 // 프로그래머스 : 게임 맵 최단거리
+//class Solution {
+//    static List<List<Integer>> list;
+//    static boolean[] visited;
+//    static int[] distance;
+//    public int solution(int[][] maps) {
+//        int m = maps.length;
+//        int n = maps[0].length;
+//        visited = new boolean[m*n];
+//        distance = new int[m*n];
+//        list = new ArrayList<>();
+//        Arrays.fill(distance, 1);
+//
+//        for(int i=0; i<m*n; i++) {
+//            list.add(new ArrayList<>());
+//        }
+//
+//        for(int i=0; i<m; i++) {
+//            for (int j = 0; j < n; j++) {
+//                if(maps[i][j]==0) continue;
+//                int dx[] = {-1, 1, 0, 0};
+//                int dy[] = {0, 0, -1, 1};
+//                for (int k = 0; k < 4; k++) {
+//                    int target_i = i + dx[k];
+//                    int target_j = j + dy[k];
+//                    if (target_i < m && target_i >= 0  && target_j < n && target_j >= 0 && maps[target_i][target_j]==1){
+//                        addEdge(i*n+j, target_i*n+target_j);
+//                    }
+//                }
+//            }
+//        }
+//        int answer = bfs(0, n*m-1);
+//        return answer;
+//    }
+//    static void addEdge(int a, int b) { // 단방향을 양방향으로 풀기
+//        list.get(a).add(b);
+//        list.get(b).add(a);
+//    }
+//
+//
+//    static int bfs(int start, int end) {
+//        Queue<Integer> queue = new LinkedList<>();
+//        queue.add(start);
+//        visited[start] = true;
+//        while (!queue.isEmpty()) {
+//            int now = queue.poll(); // 현재 위치를 꺼내면서(방문)
+//            for (int next : list.get(now)) {
+//                if (visited[next] != true) {
+//                    queue.add(next); // 이어진 노드(방문예정)를 큐에 삽입
+//                    distance[next] = distance[now] + 1; // 직전 노드의 거리 + 1
+//                    visited[next] = true;
+//                    if (next == end) { // 도착지점이 담기면 종료
+//                        return distance[next];
+//                    }
+//                }
+//            }
+//        }
+//        return -1;
+//    }
+//}
+
+
+//// 프로그래머스 : 가장 먼 노드
+//
+//class Solution {
+//    static List<List<Integer>> list = new ArrayList<>();
+//    static boolean[] visited;
+//    static int[] distance;
+//    public int solution(int n, int[][] edge) {
+//        int answer = 0;
+//        int max = 0;
+//
+//        visited = new boolean[n+1];
+//        distance = new int[n+1];
+//
+//        for(int i=0; i<=n; i++) {
+//            list.add(new ArrayList<>());
+//        }
+//        for(int[] a : edge) {
+//            addEdge(a[0], a[1]);
+//        }
+//        bfs(1);
+//
+//        for(int a : distance) {
+//            if(max < a) {
+//                max = a;
+//            }
+//        }
+//        for(int a : distance) {
+//            if(a == max) {
+//                answer++;
+//            }
+//        }
+//
+//        return answer;
+//    }
+//    static void addEdge(int a, int b) { // 단방향을 양방향으로 풀기
+//        list.get(a).add(b);
+//        list.get(b).add(a);
+//    }
+//
+//
+//    static void bfs(int start) {
+//        Queue<Integer> queue = new LinkedList<>();
+//        queue.add(start);
+//        visited[start] = true;
+//        while (!queue.isEmpty()) {
+//            int now = queue.poll(); // 현재 위치를 꺼내면서(방문)
+//            for (int next : list.get(now)) {
+//                if (visited[next] != true) {
+//                    queue.add(next); // 이어진 노드(방문예정)를 큐에 삽입
+//                    distance[next] = distance[now] + 1; // 직전 노드의 거리 + 1
+//                    visited[next] = true;
+//                }
+//            }
+//        }
+//    }
+//}
 
